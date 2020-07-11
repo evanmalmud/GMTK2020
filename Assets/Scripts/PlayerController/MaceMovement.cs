@@ -9,6 +9,7 @@ public class MaceMovement : MonoBehaviour
     public float maxVelocity = 1f;
     public bool letVelocityLower = false;
     public Vector2 lastVelocity;
+    public float hitForce = 1000;
 
     // Start is called before the first frame update
     void Start()
@@ -36,14 +37,36 @@ public class MaceMovement : MonoBehaviour
 
         if (col.collider.tag == "Enemy" || col.collider.tag == "Bounce")
         {
-            Debug.Log("Mace collider");
+            Debug.Log("Mace collider enter");
             //reverse velocity
-            Vector2 newVelocity = new Vector2();
-            newVelocity.x = rb.velocity.x * -1;
-            newVelocity.y = rb.velocity.y * -1;
-            rb.velocity = newVelocity;
-            float newAnuglarVelocity = rb.angularVelocity * -1;
-            rb.angularVelocity = newAnuglarVelocity;
+
+            forceHit(col.transform);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+
+        if (col.tag == "Enemy")
+        {
+            Debug.Log("Mace Trigger Enter collider");
+            //reverse velocity
+
+            forceHit(col.transform);
+        }
+        if (col.tag == "Bounce")
+        {
+            Debug.Log("Mace bounce Enter collider");
+            //reverse velocity
+
+            forceHit(col.transform);
+        }
+
+    }
+
+    public void forceHit(Transform hittransform) {
+        Vector2 dir = hittransform.position - transform.position;
+        dir = -dir.normalized;
+        rb.AddForce(dir * hitForce * rb.mass);
     }
 }
