@@ -43,6 +43,6 @@ MonoBehaviour:
     spriteEnabled: 1
     uiEnabled: 1
     textMeshProEnabled: 1
-    tk2DEnabled: 1
+    tk2DEnabled: 0
   showPlayingTweens: 1
   showPausedTweens: 0
