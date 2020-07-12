@@ -119,7 +119,7 @@ public class MaceMovement : MonoBehaviour
         mainCamera.ShakeScreenDefault();
         animator.SetTrigger("hit");
         Vector2 dir = hittransform.position - transform.position;
-        print("forhit" + dir);
+       // print("forhit" + dir);
         dir = -dir.normalized;
         rb.AddForce(dir * force * rb.mass);
     }

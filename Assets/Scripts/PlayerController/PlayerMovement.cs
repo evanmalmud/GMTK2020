@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 lastMovement;
     public Vector2 lastVelocity;
 
+    public int score = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -157,7 +159,11 @@ public class PlayerMovement : MonoBehaviour
         hp.healthUpdate(health);
         if(health == 0) {
             //Game Over
-            gameOver.gameOver();
+            gameOver.gameOver(score);
         }
+    }
+
+    public void addScore(int val) {
+        score += val;
     }
 }

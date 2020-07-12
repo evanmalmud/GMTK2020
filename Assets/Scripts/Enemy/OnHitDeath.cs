@@ -20,9 +20,12 @@ public class OnHitDeath : MonoBehaviour
     public bool isBoss = false;
     public int health = 3;
 
+    GameObject player;
+
 
     void Start()
     {
+        player = GetComponent<AIDestinationSetter>().target.gameObject;
         rb = GetComponent<Rigidbody2D>();
         aiPath = GetComponent<AIPath>();
         thiscollider = GetComponent<CircleCollider2D>();
@@ -97,6 +100,7 @@ public class OnHitDeath : MonoBehaviour
                 badnanaSFX.Play();
                 swapAfterBounce = true;
             }
+            player.GetComponent<PlayerMovement>().addScore(100);
         }
         if (col.tag == "Player" && gameObject.tag.Equals("Enemy"))
         {
@@ -115,6 +119,7 @@ public class OnHitDeath : MonoBehaviour
             destroyAfterBounce = true;
             slipSFX.Play();
             thiscollider.enabled = false;
+            sprite.enabled = false;
         }
     }
 

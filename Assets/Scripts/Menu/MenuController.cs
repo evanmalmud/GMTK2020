@@ -114,4 +114,8 @@ public class MenuController : MonoBehaviour
             Debug.Log("OptionsCanvas is not set on MenuController.");
         }
     }
+
+    public void quitGame() {
+        Application.Quit();
+    }
 }
