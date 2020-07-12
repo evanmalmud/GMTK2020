@@ -16,6 +16,16 @@ public class MenuController : MonoBehaviour
         mainMenuActive(true);
     }
 
+    private void Update()
+    {
+        if(MainMenuCanvas.activeSelf) {
+            if (Input.GetButton("Submit"))
+            {
+                loadScene();
+            }
+        }
+    }
+
     // Public Methods
 
     /// <summary>
@@ -54,8 +64,12 @@ public class MenuController : MonoBehaviour
     public void playSceneLoad()
     {
         // Update Scene to GamePlay Scene
-        FadeCanvas.GetComponent<FadeInOut>().fadeIn();
+        FadeCanvas.GetComponent<FadeInOut>().fadeIn(this);
+
         // TODO: Update for whatever GameScene you are using
+    }
+
+    public void loadScene() {
         SceneManager.LoadScene("Game");
     }
 

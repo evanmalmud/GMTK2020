@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Bounce
   - Slip
+  - Magnet
+  - SuperBounce
   layers:
   - Default
   - TransparentFX
@@ -48,9 +50,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Enemy
+    uniqueID: 2571433839
+    locked: 0
   - name: Player
     uniqueID: 242342553
     locked: 0
-  - name: Enemy
-    uniqueID: 2571433839
+  - name: UI
+    uniqueID: 4190280165
     locked: 0

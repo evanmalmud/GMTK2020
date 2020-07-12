@@ -21,30 +21,25 @@ public class FadeInOut : MonoBehaviour
     [Range(0, 1)]
     [Tooltip("Alpha value of Fade Out. Should be 0f for fully transparent.")]
     [SerializeField] private float fadeOutAlphaValue = 0f;
-    [Header("Test")]
-    [Tooltip("Set this boolean to test the fadeIn/Out. Only works in Play Mode.")]
-    [SerializeField] private bool testFades = false;
-    [Tooltip("Delay between FadeIn and FadeOut.")]
-    [SerializeField] private float delayBetweenFades = 5f;
 
     private void Awake()
     {
         fadeImage = GetComponentInChildren<Image>();
     }
 
-    void Update()
-    {
-        if(testFades) {
-            TestFadeCoroutine();
-        }
-    }
-
     /// <summary>
     /// Fades In with the preset Defaults
     /// </summary>
+    public void fadeIn(MenuController controller)
+    {
+        //print("fade in called");
+        StartCoroutine(FadeInRoutine(controller));
+    }
+
     public void fadeIn()
     {
-        fadeImage.DOFade(fadeInAlphaValue, fadeInDuration).Play();
+        //print("fade in called");
+        StartCoroutine(FadeInRoutine());
     }
 
     /// <summary>
@@ -52,13 +47,29 @@ public class FadeInOut : MonoBehaviour
     /// </summary>
     public void fadeOut()
     {
-        fadeImage.DOFade(fadeOutAlphaValue, fadeOutDuration).Play();
+        StartCoroutine(FadeOutRoutine());
     }
 
-    IEnumerator TestFadeCoroutine()
+    IEnumerator FadeInRoutine(MenuController controller)
     {
-        fadeIn();
-        yield return new WaitForSeconds(delayBetweenFades);
-        fadeOut();
+        //print("fade in routine");
+        Tween tween = fadeImage.DOFade(fadeInAlphaValue, fadeInDuration);
+        yield return tween.WaitForCompletion();
+        controller.loadScene();
+        //print("fade in complete");
+    }
+
+    IEnumerator FadeInRoutine()
+    {
+        //print("fade in routine");
+        Tween tween = fadeImage.DOFade(fadeInAlphaValue, fadeInDuration);
+        yield return tween.WaitForCompletion();
+        //print("fade in complete");
+    }
+
+    IEnumerator FadeOutRoutine()
+    {
+        Tween tween = fadeImage.DOFade(fadeOutAlphaValue, fadeOutDuration).Play();
+        yield return tween.WaitForCompletion();
     }
 }
