@@ -36,6 +36,11 @@ public class PlayerMovement : MonoBehaviour
 
     public int score = 0;
 
+    public int streakCounter = 0;
+    bool fireplaying = false;
+    public int streakFireCount = 20;
+    public GameObject maceParticleTrail;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,6 +52,16 @@ public class PlayerMovement : MonoBehaviour
         // Gives a value between -1 and 1
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+        if(streakCounter >= streakFireCount && fireplaying == false) {
+            // maceParticleTrail.Play();
+            maceParticleTrail.SetActive(true);
+            fireplaying = true;
+        } else {
+            // maceParticleTrail.Stop();
+            maceParticleTrail.SetActive(true);
+            fireplaying = false;
+        }
     }
 
     void FixedUpdate()
@@ -160,6 +175,7 @@ public class PlayerMovement : MonoBehaviour
     public void takeDamage(int amount)
     {
         if (!playerinvilnerable) {
+            streakCounter = 0;
             health -= amount;
             hp.healthUpdate(health);
             StartCoroutine(playerHurt());
@@ -174,6 +190,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void addScore(int val) {
         score += val;
+        streakCounter++;
     }
 
     IEnumerator playerHurt()
