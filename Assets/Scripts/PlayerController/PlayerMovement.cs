@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource hurtAudio;
 
+    bool playerinvilnerable = false;
+
     public int score = 0;
 
     void Start()
@@ -155,17 +157,45 @@ public class PlayerMovement : MonoBehaviour
         mainCamera.ShakeScreenDefault();
         rb.AddForce(hittransform.normalized * hitForce * rb.mass);
     }
-    public void takeDamage(int amount) {
-        health -= amount;
-        hp.healthUpdate(health);
-        hurtAudio.Play();
-        if (health == 0) {
-            //Game Over
-            gameOver.gameOver(score);
-        }
+    public void takeDamage(int amount)
+    {
+        if (!playerinvilnerable) {
+            health -= amount;
+            hp.healthUpdate(health);
+            StartCoroutine(playerHurt());
+            hurtAudio.Play();
+            if (health == 0)
+            {
+                //Game Over
+                gameOver.gameOver(score);
+            }
+         }
     }
 
     public void addScore(int val) {
         score += val;
+    }
+
+    IEnumerator playerHurt()
+    {
+        playerinvilnerable = true;
+        Color playerColor = playerSprite.color;
+        Color alphaColor = playerColor;
+        alphaColor.a = 0;
+
+        //print("fade in routine");
+        playerSprite.color = alphaColor;
+        yield return new WaitForSeconds(0.1f);
+        playerSprite.color = playerColor;
+        yield return new WaitForSeconds(0.1f);
+        playerSprite.color = alphaColor;
+        yield return new WaitForSeconds(0.1f);
+        playerSprite.color = playerColor;
+        yield return new WaitForSeconds(0.1f);
+        playerSprite.color = alphaColor;
+        yield return new WaitForSeconds(0.1f);
+        playerSprite.color = playerColor;
+
+        playerinvilnerable = false;
     }
 }
