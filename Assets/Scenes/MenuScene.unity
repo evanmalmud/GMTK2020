@@ -2622,7 +2622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d76432bf3b0e1794ab2a4011603e133d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMenuCanvas: {fileID: 1624811773}
+  MainMenuCanvas: {fileID: 1689877551}
   OptionsCanvas: {fileID: 649640178}
   CreditsCanvas: {fileID: 2104788785}
   FadeCanvas: {fileID: 1031342730835995822}
@@ -7035,7 +7035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1624811774
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7288,7 +7288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1689877552
 MonoBehaviour:
   m_ObjectHideFlags: 0
