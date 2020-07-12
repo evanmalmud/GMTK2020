@@ -5401,7 +5401,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.26
+  orthographic size: 6.67
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -30733,7 +30733,7 @@ PrefabInstance:
     - target: {fileID: 969724120546455345, guid: b4b0e964178a68b408bbac19909831ee,
         type: 3}
       propertyPath: streakFireCount
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 969724120546455346, guid: b4b0e964178a68b408bbac19909831ee,
         type: 3}
@@ -30838,7 +30838,7 @@ PrefabInstance:
     - target: {fileID: 969724120546455356, guid: b4b0e964178a68b408bbac19909831ee,
         type: 3}
       propertyPath: m_Distance
-      value: 2
+      value: 2.6904647
       objectReference: {fileID: 0}
     - target: {fileID: 969724120546455356, guid: b4b0e964178a68b408bbac19909831ee,
         type: 3}
@@ -31041,7 +31041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &1571260354268779000
 CanvasRenderer:
   m_ObjectHideFlags: 0

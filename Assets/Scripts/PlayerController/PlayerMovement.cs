@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     public int score = 0;
 
     public int streakCounter = 0;
-    bool fireplaying = false;
+    public bool fireplaying = false;
     public int streakFireCount = 20;
     public GameObject maceParticleTrail;
 
@@ -57,9 +57,9 @@ public class PlayerMovement : MonoBehaviour
             // maceParticleTrail.Play();
             maceParticleTrail.SetActive(true);
             fireplaying = true;
-        } else {
+        } else if (streakCounter < streakFireCount && fireplaying == true) {
             // maceParticleTrail.Stop();
-            maceParticleTrail.SetActive(true);
+            maceParticleTrail.SetActive(false);
             fireplaying = false;
         }
     }
