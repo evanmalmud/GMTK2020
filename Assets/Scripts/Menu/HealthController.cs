@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
-    public Image[] images;
+    public Animator[] images;
 
     public int totalhealth;
 
@@ -17,13 +17,15 @@ public class HealthController : MonoBehaviour
 
     public void healthUpdate(int currentHealth) {
         int count = 1;
-        foreach(Image image in images) {
+        foreach(Animator image in images) {
             if(count <= currentHealth) {
                 //Heart ON
-                image.enabled = true;
+                image.SetBool("isOn", true);
+                //image.enabled = true;
             } else {
                 //heart off
-                image.enabled = false;
+                image.SetBool("isOn", false);
+                //image.enabled = false;
             }
             count++;
         }

@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     public float easyModeEnd = 30f;
     public float mediumModeEnd = 60f;
-    public float hardModeEnd = 200f;
+    public float hardModeEnd = 130;
     public float insaneModeEnd = 500f;
 
     public GameObject mediumBounce;
@@ -87,20 +87,20 @@ public class EnemySpawner : MonoBehaviour
     void startEasyMode()
     {
         Debug.Log("East Mode Start");
-        InvokeRepeating("addEnemy", 5, 2);
+        InvokeRepeating("addEnemy", 3, 2);
     }
 
     void startMediumMode()
     {
         Debug.Log("Medium Mode Start");
-        InvokeRepeating("addEnemy", 5, 1);
+        InvokeRepeating("addEnemy", 3, 1);
         mediumBounce.SetActive(true);
     }
 
     void startHardMode()
     {
         Debug.Log("Hard Mode Start");
-        InvokeRepeating("addEnemy", 5, 1);
+        InvokeRepeating("addEnemy", 3, 1);
         InvokeRepeating("addBoss", 5, 2);
         hardMagnets.SetActive(true);
         mediumBounce.SetActive(false);
@@ -109,7 +109,7 @@ public class EnemySpawner : MonoBehaviour
     void startInsaneMode()
     {
         Debug.Log("Insane Mode Start");
-        InvokeRepeating("addBoss", 5, 0.5f);
+        InvokeRepeating("addBoss", 3, 0.5f);
         hardMagnets.SetActive(false);
         insaneSpikes.SetActive(true);
     }

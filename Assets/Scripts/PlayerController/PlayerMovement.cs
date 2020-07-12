@@ -18,9 +18,8 @@ public class PlayerMovement : MonoBehaviour
     public float slipForce = 10;
     public float lostControlTime = 2f;
     public float lostControlCounter = 0f;
-    public float runSpeed = 20.0f;
 
-    public AudioSource playeroffWall;
+    AudioSource playeroffWall;
 
     public HealthController hp;
 
@@ -30,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 lastMovement;
     public Vector2 lastVelocity;
+
+    public AudioSource hurtAudio;
 
     public int score = 0;
 
@@ -157,7 +158,8 @@ public class PlayerMovement : MonoBehaviour
     public void takeDamage(int amount) {
         health -= amount;
         hp.healthUpdate(health);
-        if(health == 0) {
+        hurtAudio.Play();
+        if (health == 0) {
             //Game Over
             gameOver.gameOver(score);
         }

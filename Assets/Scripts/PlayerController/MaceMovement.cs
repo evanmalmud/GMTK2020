@@ -81,6 +81,7 @@ public class MaceMovement : MonoBehaviour
         }
         if(col.collider.tag == "SuperBounce") {
             Debug.Log("Mace super Bounce");
+            col.gameObject.GetComponent<Animator>().SetTrigger("bounce");
             maceSFX.Play();
             forceHit(col.transform, wallhitForce * 3);
         }

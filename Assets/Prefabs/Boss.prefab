@@ -253,9 +253,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05478978, y: -0.21036112}
+  m_Offset: {x: -0.0470107, y: -0.3166752}
   serializedVersion: 2
-  m_Radius: 0.45961022
+  m_Radius: 0.28587773
 --- !u!114 &8260719490390807117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   slipSFX: {fileID: 2672228383374902108}
   hitForce: 1000
   isBoss: 1
-  health: 5
+  health: 3
 --- !u!82 &3343332583485739419
 AudioSource:
   m_ObjectHideFlags: 0
@@ -283,7 +283,8 @@ AudioSource:
   m_GameObject: {fileID: 975969123635249605}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: faac5663f9f56744bae09b582c1d4424,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: dd09b70bb6f8649408e6c482077b90ee, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.667
@@ -413,7 +414,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b9d0a2c9c7d7a0e469ec3283b9ecd58c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.497
   m_Pitch: 1
   Loop: 0
   Mute: 0
